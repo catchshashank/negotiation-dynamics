@@ -1,16 +1,14 @@
-{
-  "run_id": "2026-02-15__file__dealer_buyer_01",
-  "timestamp": "2026-02-15T18:42:10+01:00",
-  "input_file": "dealer_buyer_01.csv",
-  "input_sha256": "…",
-  "pipeline_version": "git:abc1234",
-  "liwc_dict_version": "LIWC-2022",
-  "params": {
-    "segment_col": "Segment",
-    "speaker_col": "speaker"
-  },
-  "outputs": [
-    "outputs/liwc_segments.csv",
-    "outputs/liwc_summary.csv"
-  ]
-}
+def write_manifest(run_info: dict, repo_root: Path, input_file: Path, params: dict, outputs: list[str]):
+    manifest = {
+        "timestamp": datetime.now().astimezone().isoformat(),
+        "input_file": str(input_file),
+        "input_sha256": run_info["file_hash"],
+        "file_stem": run_info["file_stem"],
+        "run_date": run_info["run_date"],
+        "pipeline_git_sha": git_head_sha(repo_root),
+        "params": params,
+        "outputs": outputs
+    }
+    manifest_path = run_info["inputs_dir"] / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    return manifest_path
