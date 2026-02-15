@@ -1,1 +1,1 @@
-Contains notebooks (.pynb) all negotiation transcripts with results.
+Date-stamped notebooks with corresponding results for negotiation transcripts.
