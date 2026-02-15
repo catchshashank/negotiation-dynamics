@@ -1,6 +1,16 @@
 {
- "cells": [],
- "metadata": {},
- "nbformat": 4,
- "nbformat_minor": 5
+  "run_id": "2026-02-15__file__dealer_buyer_01",
+  "timestamp": "2026-02-15T18:42:10+01:00",
+  "input_file": "dealer_buyer_01.csv",
+  "input_sha256": "…",
+  "pipeline_version": "git:abc1234",
+  "liwc_dict_version": "LIWC-2022",
+  "params": {
+    "segment_col": "Segment",
+    "speaker_col": "speaker"
+  },
+  "outputs": [
+    "outputs/liwc_segments.csv",
+    "outputs/liwc_summary.csv"
+  ]
 }
